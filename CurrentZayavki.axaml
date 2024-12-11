@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="demo0312.CurrentZayavki"
+        Title="CurrentZayavki">
+	<Grid
+	   RowDefinitions="100,*">
+		<StackPanel
+			Grid.Row="0">
+			<Button
+				Click="vyhod_Click"
+				Content="Выйти">
+			</Button>
+			<Button
+			   Click="NewZ_Click"
+			   Content="Создать заявку">
+			</Button>
+		</StackPanel>
+		
+		<StackPanel
+			HorizontalAlignment="Left"
+			Grid.Row="1">
+			<TextBlock
+				Text="Ваши предыдущие заявки:">
+				</TextBlock>
+			<ListBox
+				HorizontalAlignment="Left"
+				Width="300"
+				Name="listB">
+				<ListBox.ItemTemplate>
+					<DataTemplate
+					x:CompileBindings="False">
+						<ScrollViewer>
+						<StackPanel>
+							<StackPanel
+								Orientation="Horizontal">
+								<TextBlock
+									Text="Тип заявки:">
+								</TextBlock>
+								<TextBlock
+									Text="{Binding type}">
+								</TextBlock>
+							</StackPanel>
+							<StackPanel
+								Orientation="Horizontal">
+								<TextBlock
+									Text="Подразделение:">
+								</TextBlock>
+								<TextBlock
+									Text="{Binding IdEmployeeNavigation.IdDepNavigation.Dep}">
+								</TextBlock>
+							</StackPanel>
+							<StackPanel
+							Orientation="Horizontal">
+								<TextBlock
+									Text="Дата:">
+								</TextBlock>
+								<TextBlock
+									Text="{Binding DateNach}">
+								</TextBlock>
+							</StackPanel>
+							<StackPanel
+							Orientation="Horizontal">
+								<TextBlock
+									Text="Статус:">
+								</TextBlock>
+								<TextBlock
+									Text="{Binding IdStatusNavigation.Status1}">
+								</TextBlock>
+							</StackPanel>
+						</StackPanel>
+							</ScrollViewer>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+	</Grid>
+</Window>
